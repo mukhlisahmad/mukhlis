@@ -45,61 +45,60 @@
     <link rel="stylesheet" href="assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
     <link rel="stylesheet" href="assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
     <link rel="stylesheet" href="assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
-
+    <link rel="stylesheet" href="assets/css/style.css">
     <!-- Page CSS -->
     <link rel="stylesheet" href="assets/vendor/css/pages/page-profile.css" />
+    
+    <!-- SortableJS for drag and drop -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- Helpers -->
     <script src="assets/vendor/js/helpers.js"></script>
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+
     <script src="assets/js/config.js"></script>
   </head>
 
             <div class="container-xxl flex-grow-1 container-p-y">
               <!-- Header -->
 			  <style>
-				.user-profile-header-banner {
-				width: 100%;
-				height: 100%;
-				overflow: hidden; 
-				}
-				.user-profile-header-banner img {
-				width: 100%; 
-				height: 100%;
-				height: auto; 
-				display: block; 
-				}
+
 			  </style>
               <div class="row">
                 <div class="col-12">
-                  <div class="card mb-4">
+                  <div class="card mb-4" data-aos="fade-down" data-aos-duration="1000">
                     <div class="user-profile-header-banner">
                       <img src="assets/bnn.gif" alt="Banner image" class="rounded-top" />
                     </div>
                     <div class="user-profile-header d-flex flex-column flex-sm-row text-sm-start text-center mb-4">
-                      <div class="flex-shrink-0 mt-n2 mx-sm-0 mx-auto">
+                      <div class="flex-shrink-0 mt-n2 mx-sm-0 mx-auto" data-aos="zoom-in" data-aos-delay="500">
                         <img
                           src="assets/pppp.png"
                           alt="user image"
-                          class="d-block h-auto ms-0 ms-sm-4 rounded user-profile-img" />
+                          class="d-block h-auto ms-0 ms-sm-4 rounded user-profile-img pulse" />
                       </div>
-                      <div class="flex-grow-1 mt-3 mt-sm-5">
+                      <div class="flex-grow-1 mt-3 mt-sm-5" data-aos="fade-left" data-aos-delay="700">
                         <div
                           class="d-flex align-items-md-end align-items-sm-start align-items-center justify-content-md-between justify-content-start mx-4 flex-md-row flex-column gap-4">
                           <div class="user-profile-info">
-                            <h4>Ahmad Hasan Muchlis</h4>
+                            <h4 class="gradient-text">Ahmad Hasan Muchlis</h4>
                             <ul
                               class="list-inline mb-0 d-flex align-items-center flex-wrap justify-content-sm-start justify-content-center gap-2">
                               <li class="list-inline-item d-flex gap-1">
-                                <i class="ti ti-color-swatch"></i> Web Developer
+                                <i class="ti ti-color-swatch text-primary"></i> 
+                                <span class="badge bg-primary">💻 Web Developer</span>
                               </li>
-                              <li class="list-inline-item d-flex gap-1"><i class="ti ti-map-pin"></i>Sembayat, Manyar, Gresik</li>
-                              
+                              <li class="list-inline-item d-flex gap-1">
+                                <i class="ti ti-map-pin text-success"></i>
+                                <span class="badge bg-success">📍 Sembayat, Manyar, Gresik</span>
+                              </li>
                             </ul>
                           </div>
-                          <a href="https://if.uqgresik.ac.id/" class="btn btn-primary">
-                            <i class="ti ti-check me-1"></i>Mahasiswa
+                          <a href="https://if.uqgresik.ac.id/" class="btn btn-primary floating" data-aos="bounce" data-aos-delay="1000">
+                            <i class="ti ti-check me-1"></i>🎓 Mahasiswa
                           </a>
                         </div>
                       </div>
@@ -113,7 +112,10 @@
               <div class="row">
                 <div class="col-xl-4 col-lg-5 col-md-5">
                   <!-- About User -->
-                  <div class="card mb-4">
+                  <div class="card mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-header gradient-bg-2 text-white">
+                      <h5 class="text-white mb-0">👤 About Me</h5>
+                    </div>
                     <div class="card-body">
                       <small class="card-text text-uppercase">About</small>
                       <ul class="list-unstyled mb-4 mt-3">
@@ -131,7 +133,7 @@
                         </li>
                         <li class="d-flex align-items-center mb-3">
                           <i class="ti ti-flag text-heading"></i
-                          ><span class="fw-small mx-2 text-heading">Address:</span> <span>Jl Sido Akor Sembayat, Manyar, Gresik</span>
+                          ><span class="fw-small mx-2 text-heading">Address:</span> <span>Sembayat, Manyar, Gresik</span>
                         </li>
                        
                       </ul>
@@ -162,359 +164,279 @@
                   <!--/ About User -->
 
                 </div>
-                <div class="col-xl-8 col-lg-7 col-md-7">
+                <div class="col-xl-8 col-lg-7 col-md-7 p-4 pb-5">
                   <!-- Activity Timeline -->
-                  <div class="card card-action mb-4">
-                    <div class="card-header align-items-center">
-                      <h5 class="card-action-title mb-0">Project</h5>
-                     
+                  <div class="card card-action mb-4 floating " data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-header align-items-center gradient-bg-1 text-white ">
+                      <h5 class="card-action-title mb-0 text-white">🚀 My Projects</h5>
+                      <small class="text-white-50">Click and drag cards to reorder them!</small>
                     </div>
-                    <div class="card-body pb-0">
-                      <ul class="timeline ms-1 mb-0">
-                        <li class="timeline-item timeline-item-transparent">
-                          <span class="timeline-point timeline-point-primary"></span>
-                          <div class="timeline-event">
-                            <div class="timeline-header">
-                              <h6 class="mb-0">Chatbot Customer Service</h6>
-                            </div>
-                            <div class="d-flex flex-wrap">
-                            <a href="https://codecraftersuq.com/" target="_blank">
-                            <div class="avatar me-2">
-                              <img src="assets/ruangtanya.png" alt="Avatar" class="rounded-circle" />
-                            </div>
-                            <div class="ms-1">
-                              <h6 class="mb-0">Chatbot Ruang Tanya For Customer Service , Client Metode for Embed code </h6>
-                              <p>click here</p>
-                            </div>
-                            </a>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="timeline-item timeline-item-transparent">
-                          <span class="timeline-point timeline-point-success"></span>
-						            <div class="timeline-event">
-                            <div class="timeline-header">
-                              <h6 class="mb-0">Sistem Informasi Bimbingan TA/KP</h6>
-                            </div>
-                            <div class="d-flex flex-wrap">
-                            <a href="https://codecraftersuq.com/bimbingan/" target="_blank">
-                            <div class="avatar me-2">
-                              <img src="assets/if (1).png" alt="Avatar" class="rounded-circle" />
-                            </div>
-                            <div class="ms-1">
-                              <h6 class="mb-0">Sistem informasi bimbingan TA/KP ini merupakan aplikasi yang digunakan untuk
-            mahasiswa Universitas Qomaruddin .</h6>
-                              <p>click here</p>
-                            </div>
-                            </a>
+                    <br>
+                    <div class="card-body projects-container">
+                      <div class="row" id="sortable-projects">
+                        
+                        <!-- Project Card 1 -->
+                        <div class="col-lg-6 col-md-6 mb-4">
+                          <div class="project-card card h-100" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card-body">
+                              <div class="d-flex align-items-center mb-3">
+                                <div class="avatar avatar-lg me-3">
+                                  <img src="assets/ruangtanya.png" alt="Project" class="rounded-circle" />
+                                </div>
+                                <div class="flex-grow-1">
+                                  <h5 class="card-title mb-1">🤖 Chatbot Customer Service</h5>
+                                  <span class="badge bg-primary">AI/ML</span>
+                                </div>
+                                <div class="drag-handle">
+                                  <i class="ti ti-grip-vertical text-muted"></i>
+                                </div>
+                              </div>
+                              <p class="card-text">Chatbot Ruang Tanya For Customer Service, Client Method for Embed code</p>
+                              <a href="https://codecraftersuq.com/" target="_blank" class="btn btn-outline-primary btn-sm">
+                                <i class="ti ti-external-link me-1"></i> View Project
+                              </a>
                             </div>
                           </div>
-                        </li>
-                        <li class="timeline-item timeline-item-transparent">
-                          <span class="timeline-point timeline-point-danger"></span>
-                          <div class="timeline-event">
-                            <div class="timeline-header">
-                              <h6 class="mb-0">SIO (Sistem Informasi Organisasi)</h6>
-                            </div>
-                            <div class="d-flex flex-wrap">
-                            <a href="https://pmii-bt.my.id/" target="_blank">
-                            <div class="avatar me-2">
-                              <img src="assets/bt-logo.png" alt="Avatar" class="rounded-circle" />
-                            </div>
-                            <div class="ms-1">
-                              <h6 class="mb-0">SIO Merupakan Sistem informasi yang di tujukan untuk instansi Organisasi </h6>
-                              <p>click here</p>
-                            </div>
-                            </a>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="timeline-item timeline-item-transparent">
-                                      <span class="timeline-point timeline-point-warning"></span>
-                          <div class="timeline-event">
-                                        <div class="timeline-header">
-                                          <h6 class="mb-0">E-KPH </h6>
-                                        </div>
-                                        <div class="d-flex flex-wrap">
-                            <a href="https://codecraftersuq.com/e-kph/" target="_blank">
-                            <div class="avatar me-2">
-                              <img src="assets/hima.png" alt="Avatar" class="rounded-circle" />
-                            </div>
-                            <div class="ms-1">
-                              <h6 class="mb-0">E-KPH merupakan aplikasi yang digunakan untuk pemilihan ketua umum Himpunan Mahasiswa</h6>
-                              <p>click here</p>
-                            </div>
-                            </a>
+                        </div>
+
+                        <!-- Project Card 2 -->
+                        <div class="col-lg-6 col-md-6 mb-4">
+                          <div class="project-card card h-100" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card-body">
+                              <div class="d-flex align-items-center mb-3">
+                                <div class="avatar avatar-lg me-3">
+                                  <img src="assets/if (1).png" alt="Project" class="rounded-circle" />
+                                </div>
+                                <div class="flex-grow-1">
+                                  <h5 class="card-title mb-1">📚 Sistem Bimbingan TA/KP</h5>
+                                  <span class="badge bg-success">Web App</span>
+                                </div>
+                                <div class="drag-handle">
+                                  <i class="ti ti-grip-vertical text-muted"></i>
+                                </div>
+                              </div>
+                              <p class="card-text">Sistem informasi bimbingan TA/KP untuk mahasiswa Universitas Qomaruddin</p>
+                              <a href="https://codecraftersuq.com/bimbingan/" target="_blank" class="btn btn-outline-success btn-sm">
+                                <i class="ti ti-external-link me-1"></i> View Project
+                              </a>
                             </div>
                           </div>
-                        </li>
-                        <li class="timeline-item timeline-item-transparent">
-                          <span class="timeline-point timeline-point-info"></span>
-                          <div class="timeline-event">
-                            <div class="timeline-header">
-                              <h6 class="mb-0">Chatbot SOP Keselamatan Kerja</h6>
-                            </div>
-                            <div class="d-flex flex-wrap">
-                            <a href="https://app.smojo.org/genesis5/Safety-Mining" target="_blank">
-                            <div class="avatar me-2">
-                              <img src="assets/sf.png" alt="Avatar" class="rounded-circle" />
-                            </div>
-                            <div class="ms-1">
-                              <h6 class="mb-0">Chatbot SOP Keselamatan Kerja Yang di tujukan Untuk para pekerja di PT PAMAPERSADA NUSANTARA</h6>
-                              <p>click here</p>
-                            </div>
-                            </a>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="timeline-item timeline-item-transparent ">
-                          <span class="timeline-point timeline-point-warning"></span>
-						            <div class="timeline-event">
-                            <div class="timeline-header">
-                              <h6 class="mb-0">Digi Up Creator Up</h6>
-                            </div>
-                            <div class="d-flex flex-wrap">
-                            <a href="https://app.creatorup.id/" target="_blank">
-                            <div class="avatar me-2">
-                              <img src="assets/logo_creator_up.webp" alt="Avatar" style="width: 18vh; height: 4vh;" class="rounded" />
-                            </div>
-                            <div class="ms-1">
-                              <h6 class="mb-0"></h6>
-                              <p>click here</p>
-                            </div>
-                            </a>
+                        </div>
+
+                        <!-- Project Card 3 -->
+                        <div class="col-lg-6 col-md-6 mb-4">
+                          <div class="project-card card h-100" data-aos="fade-up" data-aos-delay="300">
+                            <div class="card-body">
+                              <div class="d-flex align-items-center mb-3">
+                                <div class="avatar avatar-lg me-3">
+                                  <img src="assets/bt-logo.png" alt="Project" class="rounded-circle" />
+                                </div>
+                                <div class="flex-grow-1">
+                                  <h5 class="card-title mb-1">🏢 SIO (Sistem Informasi Organisasi)</h5>
+                                  <span class="badge bg-danger">Management</span>
+                                </div>
+                                <div class="drag-handle">
+                                  <i class="ti ti-grip-vertical text-muted"></i>
+                                </div>
+                              </div>
+                              <p class="card-text">SIO Merupakan Sistem informasi yang ditujukan untuk instansi Organisasi</p>
+                              <a href="https://pmii-bt.my.id/" target="_blank" class="btn btn-outline-danger btn-sm">
+                                <i class="ti ti-external-link me-1"></i> View Project
+                              </a>
                             </div>
                           </div>
-                        </li>
-                        <li class="timeline-item timeline-item-transparent border-transparent">
-                          <span class="timeline-point timeline-point-success"></span>
-						            <div class="timeline-event">
-                            <div class="timeline-header">
-                              <h6 class="mb-0">Digi Up Post Up</h6>
-                            </div>
-                            <div class="d-flex flex-wrap">
-                            <a href="https://app.postup.id/" target="_blank">
-                            <div class="avatar me-2">
-                              <img src="assets/logo_post_up.webp" alt="Avatar" style="width: 19vh; height: 2.4rem;" class="rounded" />
-                            </div>
-                            <div class="ms-1">
-                              <h6 class="mb-0"></h6>
-                              <p>click here</p>
-                            </div>
-                            </a>
+                        </div>
+
+                        <!-- Project Card 4 -->
+                        <div class="col-lg-6 col-md-6 mb-4">
+                          <div class="project-card card h-100" data-aos="fade-up" data-aos-delay="400">
+                            <div class="card-body">
+                              <div class="d-flex align-items-center mb-3">
+                                <div class="avatar avatar-lg me-3">
+                                  <img src="assets/hima.png" alt="Project" class="rounded-circle" />
+                                </div>
+                                <div class="flex-grow-1">
+                                  <h5 class="card-title mb-1">🗳️ E-KPH (Electronic Voting)</h5>
+                                  <span class="badge bg-warning">E-Voting</span>
+                                </div>
+                                <div class="drag-handle">
+                                  <i class="ti ti-grip-vertical text-muted"></i>
+                                </div>
+                              </div>
+                              <p class="card-text">E-KPH untuk pemilihan ketua umum Himpunan Mahasiswa</p>
+                              <a href="https://codecraftersuq.com/e-kph/" target="_blank" class="btn btn-outline-warning btn-sm">
+                                <i class="ti ti-external-link me-1"></i> View Project
+                              </a>
                             </div>
                           </div>
-                        </li>
-                      </ul>
+                        </div>
+
+                        <!-- Project Card 5 -->
+                        <div class="col-lg-6 col-md-6 mb-4">
+                          <div class="project-card card h-100" data-aos="fade-up" data-aos-delay="500">
+                            <div class="card-body">
+                              <div class="d-flex align-items-center mb-3">
+                                <div class="avatar avatar-lg me-3">
+                                  <img src="assets/sf.png" alt="Project" class="rounded-circle" />
+                                </div>
+                                <div class="flex-grow-1">
+                                  <h5 class="card-title mb-1">⚡ Chatbot SOP Keselamatan</h5>
+                                  <span class="badge bg-info">Safety Bot</span>
+                                </div>
+                                <div class="drag-handle">
+                                  <i class="ti ti-grip-vertical text-muted"></i>
+                                </div>
+                              </div>
+                              <p class="card-text">Chatbot SOP Keselamatan Kerja untuk PT PAMAPERSADA NUSANTARA</p>
+                              <a href="https://app.smojo.org/genesis5/Safety-Mining" target="_blank" class="btn btn-outline-info btn-sm">
+                                <i class="ti ti-external-link me-1"></i> View Project
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Project Card 6 -->
+                        <div class="col-lg-6 col-md-6 mb-4">
+                          <div class="project-card card h-100" data-aos="fade-up" data-aos-delay="600">
+                            <div class="card-body">
+                              <div class="d-flex align-items-center mb-3">
+                                <div class="avatar avatar-lg me-3">
+                                  <img src="assets/icon-creatorup.webp" alt="Project" class="rounded" style="width: 50px; height: 50px; object-fit: cover;" />
+                                </div>
+                                <div class="flex-grow-1">
+                                  <h5 class="card-title mb-1">🎨 Digi Up Creator Up</h5>
+                                  <span class="badge bg-warning">Digital Platform</span>
+                                </div>
+                                <div class="drag-handle">
+                                  <i class="ti ti-grip-vertical text-muted"></i>
+                                </div>
+                              </div>
+                              <p class="card-text">Digital platform untuk content creators</p>
+                              <a href="https://app.creatorup.id/" target="_blank" class="btn btn-outline-warning btn-sm">
+                                <i class="ti ti-external-link me-1"></i> View Project
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Project Card 7 -->
+                        <div class="col-lg-6 col-md-6 mb-4">
+                          <div class="project-card card h-100" data-aos="fade-up" data-aos-delay="700">
+                            <div class="card-body">
+                              <div class="d-flex align-items-center mb-3">
+                                <div class="avatar avatar-lg me-3">
+                                  <img src="assets/icon-post-up.webp" alt="Project" class="rounded" style="width: 50px; height: 50px; object-fit: cover;" />
+                                </div>
+                                <div class="flex-grow-1">
+                                  <h5 class="card-title mb-1">📱 Digi Up Post Up</h5>
+                                  <span class="badge bg-success">Social Media</span>
+                                </div>
+                                <div class="drag-handle">
+                                  <i class="ti ti-grip-vertical text-muted"></i>
+                                </div>
+                              </div>
+                              <p class="card-text">Social media management platform</p>
+                              <a href="https://app.postup.id/" target="_blank" class="btn btn-outline-success btn-sm">
+                                <i class="ti ti-external-link me-1"></i> View Project
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
                     </div>
                   </div>
                   <!--/ Activity Timeline -->
                   <div class="row">
                     <!-- Connections -->
-                    <div class="col-lg-12 col-xl-6">
-                      <div class="card card-action mb-4">
-                        <div class="card-header align-items-center">
-                          <h5 class="card-action-title mb-0">Education</h5>
-                         
+               
+
+                    <!-- Pengalaman Organisasi -->
+                    <div class="col-lg-12 col-xl-6 ">
+                      <div class="card card-action mb-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-header align-items-center gradient-bg-4 text-white m-2">
+                          <h5 class="card-action-title mb-0 text-white">🏛️ Pengalaman Organisasi</h5>
+                          <small class="text-white-50 d-block">Perjalanan organisasi saya</small>
                         </div>
                         <div class="card-body">
-                          <ul class="list-unstyled mb-0">
-                            <li class="mb-3">
-                              <div class="d-flex align-items-start">
-                                <div class="d-flex align-items-start">
-									<div class="avatar me-2">
-										<img src="assets/tk.png" alt="Avatar" class="rounded-circle" />
-									</div>
-									<a href="https://www.facebook.com/tkdwpindro1981/" target="_blank" >
-									<div class="me-2 ms-1">
-										<h6 class="mb-0">TK Dharma Wanita Persatuan</h6>
-										<small class="text-muted"></small>
-									</div>
-									<div class="ms-auto">
-										<button class="btn btn-primary btn-icon btn-sm">
-											<i class="ti ti-check ti-xs"> </i>
-										</button>
-										<p>Click Here</p>
-									</div>
-									</a>
+                          <div class="row g-3">
+                            <!-- Organisasi 1 -->
+                            <div class="col-12">
+                              <div class="org-card p-3 border rounded-3 bg-light hover-shadow" data-aos="fade-right" data-aos-delay="100">
+                                <div class="d-flex align-items-center">
+                             
+                                  <div class="flex-grow-1">
+                                    <h6 class="mb-1 text-primary">CO Kaderisasi PMII Rayon FT Bintang Timur</h6>
+                                    <p class="mb-1 text-muted small">Koordinator Kaderisasi</p>
+                                    <span class="badge bg-primary">2023 - Sekarang</span>
+                                  </div>
+                                  <a href="https://pmii-bt.my.id/" target="_blank" class="btn btn-outline-primary btn-sm">
+                                    <i class="ti ti-external-link me-1"></i>Kunjungi
+                                  </a>
                                 </div>
                               </div>
-                            </li>
-                            <li class="mb-3">
-                              <div class="d-flex align-items-start">
-                                <div class="d-flex align-items-start">
-									<div class="avatar me-2">
-										<img src="assets/mi.jpg" alt="Avatar" class="rounded-circle" />
-									</div>
-									<a href="https://www.facebook.com/mialfalah.sembayat/" target="_blank" >
-									<div class="me-2 ms-1">
-										<h6 class="mb-0">MI AL Falah Sembayat</h6>
-										<small class="text-muted"></small>
-									</div>
-									<div class="ms-auto">
-										<button class="btn btn-primary btn-icon btn-sm">
-											<i class="ti ti-check ti-xs"></i>
-										</button>
-										<p>Click Here</p>
-									</div>
-									</a>
-                                </div>
-                              </div>
-                            </li>
-                            <li class="mb-3">
-                              <div class="d-flex align-items-start">
-							  <div class="d-flex align-items-start">
-									<div class="avatar me-2">
-										<img src="assets/SMP.jpg" alt="Avatar" class="rounded-circle" />
-									</div>
-									<a href="https://www.facebook.com/p/SMP-Walisongo-Sembayat-Gresik-100069834771412/" target="_blank" >
-									<div class="me-2 ms-1">
-										<h6 class="mb-0">SMP Walisongo Sembayat Gresik</h6>
-										<small class="text-muted"></small>
-									</div>
-									<div class="ms-auto">
-										<button class="btn btn-primary btn-icon btn-sm">
-											<i class="ti ti-check ti-xs"></i>
-										</button>
-										<p>Click Here</p>
-									</div>
-									</a>
-                                </div>
-                              </div>
-                            </li>
-                            <li class="mb-3">
-                              <div class="d-flex align-items-start">
-							  <div class="d-flex align-items-start">
-									<div class="avatar me-2">
-										<img src="assets/smk.jpeg" alt="Avatar" class="rounded-circle" />
-									</div>
-									<a href="https://smkassaadahgresik.sch.id/" target="_blank" >
-									<div class="me-2 ms-1">
-										<h6 class="mb-0">SMK Assa’adah Bungah Gresik</h6>
-										<small class="text-muted"></small>
-									</div>
-									<div class="ms-auto">
-										<button class="btn btn-primary btn-icon btn-sm">
-											<i class="ti ti-check ti-xs"></i>
-										</button>
-										<p>Click Here</p>
-									</div>
-									</a>
-                                </div>
-                              </div>
-                            </li>
+                            </div>
 
-                            <li class="mb-3">
-                              <div class="d-flex align-items-start">
-							  <div class="d-flex align-items-start">
-									<div class="avatar me-2">
-										<img src="assets/uq.png" alt="Avatar" class="rounded-circle" />
-									</div>
-									<a href="https://uqgresik.ac.id/" target="_blank" >
-									<div class="me-2 ms-1">
-										<h6 class="mb-0">Universitas Qomaruddin Bungah Gresik </h6>
-										<small class="text-muted"></small>
-									</div>
-									<div class="ms-auto">
-										<button class="btn btn-primary btn-icon btn-sm">
-											<i class="ti ti-check ti-xs"></i>
-										</button>
-										<p>Click Here</p>
-									</div>
-									</a>
-								
+                            <!-- Organisasi 2 -->
+                            <div class="col-12">
+                              <div class="org-card p-3 border rounded-3 bg-light hover-shadow" data-aos="fade-right" data-aos-delay="200">
+                                <div class="d-flex align-items-center">
+                               
+                                  <div class="flex-grow-1">
+                                    <h6 class="mb-1 text-success">Sekretaris Jenderal BEM Universitas Qomaruddin</h6>
+                                    <p class="mb-1 text-muted small">Badan Eksekutif Mahasiswa</p>
+                                    <span class="badge bg-success">2022 - 2023</span>
+                                  </div>
+                                  <a href="https://bemuq.my.id/#section_team" target="_blank" class="btn btn-outline-success btn-sm">
+                                    <i class="ti ti-external-link me-1"></i>Kunjungi
+                                  </a>
                                 </div>
                               </div>
-                            </li>
-                           
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <!--/ Connections -->
+                            </div>
 
-                    <!-- Connections -->
-                    <div class="col-lg-12 col-xl-6">
-                      <div class="card card-action mb-4">
-                        <div class="card-header align-items-center">
-                          <h5 class="card-action-title mb-0">Pengalaman Organisasi</h5>
-                         
-                        </div>
-                        <div class="card-body">
-                          <ul class="list-unstyled mb-0">
-                            <li class="mb-3">
-                              <div class="d-flex align-items-start">
-                                <div class="d-flex align-items-start">
-									<div class="avatar me-2">
-<!-- 										<img src="https://pmii-bt.my.id/asset/logo/CompressJPEG_online_512x512_image.png" alt="Avatar" class="rounded-circle" /> -->
-									</div>
-									<a href="https://pmii-bt.my.id/" target="_blank" >
-									<div class="me-2 ms-1">
-										<h6 class="mb-0">CO Kaderisasi PMII Rayon FT Bintang Timur</h6>
-										<small class="text-muted"></small>
-									</div>
-									<div class="ms-auto">
-										<button class="btn btn-primary btn-icon btn-sm">
-											<i class="ti ti-check ti-xs"> </i>
-										</button>
-										<p>Click Here</p>
-									</div>
-									</a>
+                            <!-- Organisasi 3 -->
+                            <div class="col-12">
+                              <div class="org-card p-3 border rounded-3 bg-light hover-shadow" data-aos="fade-right" data-aos-delay="300">
+                                <div class="d-flex align-items-center">
+                                  
+                                  <div class="flex-grow-1">
+                                    <h6 class="mb-1 text-info">Anggota HIMATIF Universitas Qomaruddin</h6>
+                                    <p class="mb-1 text-muted small">Himpunan Mahasiswa Teknik Informatika</p>
+                                    <span class="badge bg-info">2021 - Sekarang</span>
+                                  </div>
+                                  <a href="https://www.instagram.com/himatif.uq/" target="_blank" class="btn btn-outline-info btn-sm">
+                                    <i class="ti ti-external-link me-1"></i>Kunjungi
+                                  </a>
                                 </div>
                               </div>
-                            </li>
-                            <li class="mb-3">
-                              <div class="d-flex align-items-start">
-                                <div class="d-flex align-items-start">
-									<div class="avatar me-2">
-<!-- 										<img src="https://bemuq.my.id/asset/logo/bem-new2.png" alt="Avatar" class="rounded-circle" /> -->
-									</div>
-									<a href="https://bemuq.my.id/#section_team" target="_blank" >
-									<div class="me-2 ms-1">
-										<h6 class="mb-0">Sekertaris Jendral BEM UNIVERSITAS QOMARUDDIN</h6>
-										<small class="text-muted"></small>
-									</div>
-									<div class="ms-auto">
-										<button class="btn btn-primary btn-icon btn-sm">
-											<i class="ti ti-check ti-xs"></i>
-										</button>
-										<p>Click Here</p>
-									</div>
-									</a>
+                            </div>
+
+                            <!-- Organisasi 4 -->
+                            <div class="col-12">
+                              <div class="org-card p-3 border rounded-3 bg-light hover-shadow" data-aos="fade-right" data-aos-delay="400">
+                                <div class="d-flex align-items-center">
+                              
+                                  <div class="flex-grow-1">
+                                    <h6 class="mb-1 text-warning">Wakil Ketua I PMII Qomaruddin Evolution</h6>
+                                    <p class="mb-1 text-muted small">Pergerakan Mahasiswa Islam Indonesia</p>
+                                    <span class="badge bg-warning">2023 - Sekarang</span>
+                                  </div>
+                                  <a href="https://pmii-bt.my.id/" target="_blank" class="btn btn-outline-warning btn-sm">
+                                    <i class="ti ti-external-link me-1"></i>Kunjungi
+                                  </a>
                                 </div>
                               </div>
-                            </li>
-                            <li class="mb-3">
-                              <div class="d-flex align-items-start">
-							  <div class="d-flex align-items-start">
-									<div class="avatar me-2">
-<!-- 										<img src="https://codecraftersuq.com/assets/himatif.jpeg" alt="Avatar" class="rounded-circle" /> -->
-									</div>
-									<a href="https://www.instagram.com/himatif.uq/" target="_blank" >
-									<div class="me-2 ms-1">
-										<h6 class="mb-0">Anggota Himpunan Mahasiswa Teknik Informatika Universitas Qoamruddin</h6>
-										<small class="text-muted"></small>
-									</div>
-									<div class="ms-auto">
-										<button class="btn btn-primary btn-icon btn-sm">
-											<i class="ti ti-check ti-xs"></i>
-										</button>
-										<p>Click Here</p>
-									</div>
-									</a>
-                                </div>
-                              </div>
-                            </li> 
-                          </ul>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
 		
                     <!-- Teams -->
                     <div class="col-lg-12 col-xl-6">
-                      <div class="card card-action mb-4">
-                        <div class="card-header align-items-center">
-                          <h5 class="card-action-title mb-0">Keahlian</h5>
+                      <div class="card card-action mb-4" data-aos="fade-up" data-aos-delay="500">
+                        <div class="card-header align-items-center gradient-bg-5 text-white">
+                          <h5 class="card-action-title mb-0 text-white">💻 Keahlian</h5>
                          
                         </div>
 						<div class="card-header align-items-center">
@@ -614,6 +536,25 @@
                                 </div>
                                 <div class="ms-auto">
                                   <a href="javascript:;"><span class="badge bg-label-secondary"><i class="ti ti-check ti-xs"></i></span></a>
+                                </div>
+                              </div>
+                            </li>
+                                                        <li class="mb-3">
+                              <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-start">
+                                  <div class="avatar me-2">
+                                    <img
+                                      src="assets/Laravellogo.png"
+                                      alt="Avatar"
+                                      class="rounded-circle" />
+                                  </div>
+                                  <div class="me-2 ms-1">
+                                    <h6 class="mb-0"> Laravel </h6>
+                                    <small class="text-muted"></small>
+                                  </div>
+                                </div>
+                                <div class="ms-auto">
+                                  <a href="javascript:;"><span class="badge bg-label-info"><i class="ti ti-check ti-xs"></i></span></a>
                                 </div>
                               </div>
                             </li>
@@ -783,5 +724,8 @@
     <script src="assets/js/ui.js"></script>
     <!-- Page JS -->
     <script src="assets/js/pages-profile.js"></script>
+    
+    <!-- Custom Enhanced JavaScript -->
+    <script src="assets/js/anim-app.js"></script>
 		</body>
 </html>
